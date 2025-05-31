@@ -14,9 +14,9 @@ public class PedidoValidator {
 	       throw new Exception("Debe seleccionar un tipo de medicamento.");
         }
 
-        if (pedido.getCantidad() <= 0) {
-            throw new Exception("La cantidad debe ser un número entero positivo.");
-        }
+		if (pedido.getCantidad() <= 0) {
+		    throw new Exception("La cantidad debe ser un número entero positivo y válido.");
+		}
 
         if (pedido.getDistribuidor() == null || pedido.getDistribuidor().isEmpty()) {
             throw new Exception("Debe seleccionar un distribuidor.");

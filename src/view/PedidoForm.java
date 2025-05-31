@@ -123,20 +123,16 @@ public class PedidoForm extends JFrame {
         chkSecundaria.setSelected(false);
     }
 
-    private Pedido obtenerDatosFormulario() throws Exception {
+    private Pedido obtenerDatosFormulario() {
         String nombre = txtNombreMedicamento.getText().trim();
         String tipo = (String) comboTipo.getSelectedItem();
         String cantidadTexto = txtCantidad.getText().trim();
 
-        if (cantidadTexto.isEmpty()) {
-            throw new Exception("La cantidad es obligatoria.");
-        }
-
-        int cantidad;
+        int cantidad = 0;
         try {
             cantidad = Integer.parseInt(cantidadTexto);
-        } catch (NumberFormatException ex) {
-            throw new Exception("La cantidad debe ser un número entero.");
+        } catch (NumberFormatException e) {
+            cantidad = 0;
         }
 
         String distribuidor = null;
